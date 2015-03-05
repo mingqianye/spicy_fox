@@ -29,6 +29,7 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = House.new(house_params)
+    @house.user = current_user
 
     respond_to do |format|
       if @house.save
